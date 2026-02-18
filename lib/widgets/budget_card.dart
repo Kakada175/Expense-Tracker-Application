@@ -30,7 +30,9 @@ class BudgetCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white, // Very light grey/white
         borderRadius: BorderRadius.circular(24),
-        boxShadow: [BoxShadow(color: const Color(0xFF000000).withOpacity(0.5))],
+        boxShadow: [
+          BoxShadow(color: const Color(0xFF000000).withValues(alpha: .5)),
+        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,7 +43,7 @@ class BudgetCard extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: color.withOpacity(0.2),
+                  color: color.withValues(alpha: .2),
                   shape: BoxShape.circle,
                 ),
                 child: Icon(icon, color: color, size: 24),

@@ -1,4 +1,3 @@
-import 'package:finance_tracker_app/screens/expense_managing_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:provider/provider.dart';
@@ -6,6 +5,7 @@ import '../providers/transaction_provider.dart';
 import '../widgets/bottom_nav_bar.dart';
 import 'home_screen.dart';
 import 'profile_screen.dart';
+import 'transaction_screen.dart';
 
 class BillingReportScreen extends StatefulWidget {
   const BillingReportScreen({super.key});
@@ -15,7 +15,7 @@ class BillingReportScreen extends StatefulWidget {
 }
 
 class _BillingReportScreenState extends State<BillingReportScreen> {
-  int _currentIndex = 1;
+  final int _currentIndex = 1;
   String _selectedMonth = 'February';
 
   // Category colors mapping - UPDATED to match your category colors
@@ -312,7 +312,7 @@ class _BillingReportScreenState extends State<BillingReportScreen> {
         borderRadius: BorderRadius.circular(30),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 15,
             offset: const Offset(0, 5),
           ),

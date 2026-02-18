@@ -5,7 +5,7 @@ import '../../models/transaction_model.dart';
 import '../widgets/bottom_nav_bar.dart';
 import 'home_screen.dart';
 import 'profile_screen.dart';
-import 'billing_report_screen.dart';
+import 'graph_screen.dart';
 
 // ========== MAIN TRANSACTION PAGE ==========
 class TransactionPage extends StatefulWidget {
@@ -16,7 +16,7 @@ class TransactionPage extends StatefulWidget {
 }
 
 class _TransactionPageState extends State<TransactionPage> {
-  int _currentIndex = 2;
+  final int _currentIndex = 2;
   bool _showAllTransactions = false; // Track if showing all or recent
 
   @override
@@ -338,7 +338,7 @@ class _TransactionPageState extends State<TransactionPage> {
               height: 48,
               decoration: BoxDecoration(
                 color: (transaction.isExpense ? Colors.red : Colors.green)
-                    .withOpacity(0.1),
+                    .withValues(alpha: .1),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Icon(
@@ -698,9 +698,12 @@ class _AddTransactionPageState extends State<AddTransactionPage>
     );
 
     if (confirmed == true) {
+      if (!mounted) return;
       final provider = Provider.of<TransactionProvider>(context, listen: false);
       provider.deleteTransaction(widget.transaction!.id);
+      if (!mounted) return;
       Navigator.pop(context);
+      if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('${isExpense ? 'Expense' : 'Income'} deleted'),

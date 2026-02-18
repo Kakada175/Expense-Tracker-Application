@@ -209,11 +209,6 @@ class TransactionProvider extends ChangeNotifier {
         .where((t) => t.isExpense && t.date.month == 2)
         .fold(0.0, (sum, t) => sum + t.amount);
 
-    // Print for debugging (remove in production)
-    print('February Income: $febIncome');
-    print('February Expense: $febExpense');
-    print('February Saving: ${febIncome - febExpense}');
-
     return febIncome - febExpense;
   }
 

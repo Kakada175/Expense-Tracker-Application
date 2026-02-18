@@ -92,10 +92,12 @@ class _SignupScreenState extends State<SignupScreen> {
 
       // Navigate to login after short delay
       Future.delayed(const Duration(seconds: 1), () {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const LoginScreen()),
-        );
+        if (mounted) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const LoginScreen()),
+          );
+        }
       });
     } else {
       _showSnackBar('Email already exists. Please use a different email.');

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+//import 'package:flutter/services.dart';
 import 'signup_screen.dart';
 import '../utils/constants.dart';
 import 'home_screen.dart';
@@ -58,6 +58,8 @@ class _LoginScreenState extends State<LoginScreen> {
     setState(() {
       _isLoading = false;
     });
+
+    if (!mounted) return;
 
     if (success) {
       _showSnackBar('Login successful!', isError: false);

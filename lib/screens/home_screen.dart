@@ -7,8 +7,8 @@ import '../widgets/toggle_tab.dart';
 import '../widgets/category_chip.dart';
 import '../widgets/budget_card.dart';
 import '../widgets/bottom_nav_bar.dart';
-import 'expense_managing_screen.dart';
-import 'billing_report_screen.dart';
+import 'transaction_screen.dart';
+import 'graph_screen.dart';
 //import 'expense_managing_screen.dart'; // Make sure to import this
 
 class HomeScreen extends StatefulWidget {
@@ -143,8 +143,8 @@ class _HomeScreenState extends State<HomeScreen> {
       decoration: const BoxDecoration(
         color: Color(0xFFB388FF), // Purple Header
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(35),
-          topRight: Radius.circular(35),
+          topLeft: Radius.circular(0),
+          topRight: Radius.circular(0),
           bottomLeft: Radius.circular(0),
           bottomRight: Radius.circular(0),
         ),
@@ -216,7 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
               borderRadius: BorderRadius.circular(15),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.03),
+                  color: Colors.black.withValues(alpha: .03),
                   blurRadius: 10,
                 ),
               ],
@@ -341,7 +341,7 @@ class _HomeScreenState extends State<HomeScreen> {
         color: Colors.white,
         borderRadius: BorderRadius.circular(30),
         boxShadow: [
-          BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 15),
+          BoxShadow(color: Colors.black.withValues(alpha: .05), blurRadius: 15),
         ],
       ),
       child: Column(
@@ -384,7 +384,7 @@ class _HomeScreenState extends State<HomeScreen> {
             height: 30,
             padding: const EdgeInsets.symmetric(horizontal: 12),
             decoration: BoxDecoration(
-              color: color.withOpacity(0.8),
+              color: color.withValues(alpha: .8),
               borderRadius: BorderRadius.circular(30),
             ),
             alignment: Alignment.centerLeft,

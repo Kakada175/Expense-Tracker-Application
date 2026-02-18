@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../widgets/bottom_nav_bar.dart';
 import 'home_screen.dart';
-import 'billing_report_screen.dart';
-import 'expense_managing_screen.dart';
+import 'graph_screen.dart';
+import 'transaction_screen.dart';
 import 'login_screen.dart';
 import '../utils/constants.dart';
 import '../services/mock_auth_service.dart';
@@ -16,7 +16,7 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen>
     with SingleTickerProviderStateMixin {
-  int _currentIndex = 3;
+  final int _currentIndex = 3;
 
   late AnimationController _controller;
   late Animation<double> _fadeAnimation;
@@ -79,10 +79,12 @@ class _ProfileScreenState extends State<ProfileScreen>
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
 
-    return WillPopScope(
-      onWillPop: () async {
-        _navigateToHome();
-        return false;
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (!didPop) {
+          _navigateToHome();
+        }
       },
       child: Scaffold(
         backgroundColor: Colors.grey[100],
